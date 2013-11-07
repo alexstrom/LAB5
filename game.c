@@ -33,10 +33,15 @@ unsigned char movePlayer(unsigned char player, unsigned char direction){
 		}
 	}
 	else if(direction == BIT3){
-		player &= ~ROW_MASK;
-	}        else if(direction == BIT4){
-		player |= ROW_MASK;
-	}        printPlayer(player);
+		if(player < 0x88){
+			player+=0x40;
+		}
+		if(player> 0xdf){
+			player+=0xc0;
+		}
+	}
+	else if(direction == BIT4){
+		player &= ~ROW_MASK;}
 	return player;
 
 }
