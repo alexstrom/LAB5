@@ -16,7 +16,7 @@ void gameOver();
 char count = 0;
 char inprogress;
 char BUTTON;
-char HIT;
+char HIT;	//Got this idea of hit from c2c schiners code
 
 char message1[] = "you     ";
 char message2[] = "win!    ";
@@ -117,9 +117,9 @@ void init_buttons(){
 	P2DIR &= ~(BIT1|BIT2|BIT3|BIT4);
 	P2IE |= BIT1|BIT2|BIT3|BIT4;
 	P2IES |= BIT1|BIT2|BIT3|BIT4;
-	P2REN |= BIT1|BIT2|BIT3|BIT4;
-	P1OUT |= BIT1|BIT2|BIT3|BIT4;
-	P1IFG &= ~(BIT1|BIT2|BIT3|BIT4);
+	P2REN |= BIT1|BIT2|BIT3|BIT4;	// forgot to enable resistors had to look at  C2C schriners code
+	P2OUT |= BIT1|BIT2|BIT3|BIT4;
+	P2IFG &= ~(BIT1|BIT2|BIT3|BIT4);
 }
 
 void gameWon(){
